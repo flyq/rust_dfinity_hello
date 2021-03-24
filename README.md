@@ -1,20 +1,42 @@
-# rust_dfintiy_hello
+# rust_dfinity_hello
 
-Welcome to your new rust_dfintiy_hello project and to the internet computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
-
-To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
-
-To learn more before you start working with rust_dfintiy_hello, see the following documentation available online:
-
-- [Quick Start](https://sdk.dfinity.org/docs/quickstart/quickstart-intro.html)
-- [SDK Developer Tools](https://sdk.dfinity.org/docs/developers-guide/sdk-guide.html)
-- [Motoko Programming Language Guide](https://sdk.dfinity.org/docs/language-guide/motoko.html)
-- [Motoko Language Quick Reference](https://sdk.dfinity.org/docs/language-guide/language-manual.html)
-
-If you want to start working on your project right away, you might want to try the following commands:
-
-```bash
-cd rust_dfintiy_hello/
-dfx help
-dfx config --help
+## steps
+### start 
+terminal 1:
+```sh
+dfx start --clean
 ```
+### deploy
+terminal 2:
+```sh
+dfx deploy
+```
+
+### call
+terminal 2:
+```sh
+dfx canister call rust_dfinity_hello print
+()
+```
+terminal 1:
+```sh
+Starting webserver on port 50467 for replica at "http://localhost:50467"
+binding to: V4(127.0.0.1:8000)
+replica(s): http://localhost:50467/
+[Canister rrkah-fqaaa-aaaaa-aaaaq-cai] Hello World from DFINITY!
+```
+
+note:
+should set the src/rust_dfinity_hello/Cargo.toml:
+```yml
+[dependencies]
+ic-cdk = { path = "../../../../cdk-rs/src/ic-cdk", version = "0.2.3" }
+ic-cdk-macros = { path = "../../../../cdk-rs/src/ic-cdk-macros", version = "0.2.3" }
+```
+as yours, download from https://github.com/dfinity/cdk-rs
+
+
+
+for more information:
+https://sdk.dfinity.org/docs/rust-guide/rust-quickstart.html
+

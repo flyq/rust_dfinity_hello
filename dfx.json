@@ -1,33 +1,10 @@
 {
   "canisters": {
-    "rust_dfintiy_hello": {
-      "main": "src/rust_dfintiy_hello/main.mo",
-      "type": "motoko"
-    },
-    "rust_dfintiy_hello_assets": {
-      "dependencies": [
-        "rust_dfintiy_hello"
-      ],
-      "frontend": {
-        "entrypoint": "src/rust_dfintiy_hello_assets/public/index.js"
-      },
-      "source": [
-        "src/rust_dfintiy_hello_assets/assets",
-        "dist/rust_dfintiy_hello_assets/"
-      ],
-      "type": "assets"
-    }
-  },
-  "defaults": {
-    "build": {
-      "packtool": ""
-    }
-  },
-  "dfx": "0.6.26",
-  "networks": {
-    "local": {
-      "bind": "127.0.0.1:8000",
-      "type": "ephemeral"
+    "rust_dfinity_hello": {
+      "build": "cargo build --target wasm32-unknown-unknown --package rust_dfinity_hello --release",
+      "type": "custom",
+      "candid": "src/rust_dfinity_hello/rust_dfinity_hello.did",
+      "wasm": "target/wasm32-unknown-unknown/release/rust_dfinity_hello.wasm"
     }
   },
   "version": 1
